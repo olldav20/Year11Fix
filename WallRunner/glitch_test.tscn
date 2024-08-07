@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqjewm6jh1p1r"]
+
+[ext_resource type="Script" path="res://glitch_test.gd" id="1_cfwe8"]
+[ext_resource type="Texture2D" uid="uid://bd45tkcpqjf7q" path="res://Sprites/77c2aed7944c-glitch-image.jpg" id="3_nm7uh"]
+[ext_resource type="Shader" path="res://glitch.gdshader" id="4_kl2fd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6qag"]
+shader = ExtResource("4_kl2fd")
+shader_parameter/shake_power = 0.165
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 0.835
+shader_parameter/shake_block_size = 1.99
+shader_parameter/shake_color_rate = 0.044
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obg31"]
+shader = ExtResource("4_kl2fd")
+shader_parameter/shake_power = -0.465
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = -0.15
+shader_parameter/shake_block_size = 1.99
+shader_parameter/shake_color_rate = 0.044
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seem1"]
+size = Vector2(1104, 1328)
+
+[node name="GlitchTest" type="Node2D" groups=["Death"]]
+script = ExtResource("1_cfwe8")
+
+[node name="77c2Aed7944c-glitch-image" type="Sprite2D" parent="."]
+position = Vector2(-615.5, 376)
+scale = Vector2(0.784495, 1)
+texture = ExtResource("3_nm7uh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_w6qag")
+offset_left = -640.0
+offset_right = -112.0
+offset_bottom = 744.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_obg31")
+offset_left = -112.0
+offset_top = 4.0
+offset_right = -64.0
+offset_bottom = 748.0
+
+[node name="death" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2(-616, 375.5)
+shape = SubResource("RectangleShape2D_seem1")
+
+[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
