@@ -224,8 +224,6 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_pf2n5")
-speed = 3
-acceleration = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cic1f")
