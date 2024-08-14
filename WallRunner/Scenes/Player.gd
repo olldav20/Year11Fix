@@ -59,7 +59,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		coyote_timer -= delta
 		if coyote_timer < 0:
-			coyote_timer = 0
+			coyote_timer = 999
 	else:
 		coyote_timer = coyote_time
 
@@ -92,5 +92,6 @@ func _physics_process(delta):
 	update_animation(direction)
 	move_and_slide()
 
-func _on_death_box_body_entered(body):
-	get_tree().reload_current_scene()
+func _on_death_box_area_entered(area):
+	if area.is_in_group("Death"):
+		get_tree().reload_current_scene()

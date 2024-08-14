@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://0erco3ktw5e4"]
+[gd_scene load_steps=28 format=3 uid="uid://0erco3ktw5e4"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_pf2n5"]
 [ext_resource type="Texture2D" uid="uid://covsrvmfl45fm" path="res://Sprites/PNG/idle/idle_1.png" id="2_5hdw8"]
@@ -222,6 +222,9 @@ _data = {
 "run": SubResource("Animation_j60hj")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daesd"]
+size = Vector2(12, 22)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_pf2n5")
 
@@ -241,3 +244,10 @@ root_node = NodePath("../AnimatedSprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_gredw")
 }
+
+[node name="Death_box" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Death_box"]
+shape = SubResource("RectangleShape2D_daesd")
+
+[connection signal="area_entered" from="Death_box" to="." method="_on_death_box_area_entered"]
