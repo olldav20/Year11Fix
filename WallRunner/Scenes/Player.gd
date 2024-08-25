@@ -66,8 +66,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer > 0):
 		velocity.y = clampf(jump_velocity * abs(velocity.x), -600, -250)
 		coyote_timer = 0
-		if randi_range(0,10) == 1:
-			get_tree().crash
 		
 	if Input.is_action_just_pressed("poopemoj"):
 		pass
@@ -93,6 +91,9 @@ func _physics_process(delta):
 	animation_player.speed_scale = abs(velocity.x) / 300
 	animation_player.speed_scale = clampf(animation_player.speed_scale, 0.5, 7)
 	
+	if randi_range(1,1000) == 69:
+		get_tree().crash
+		
 	update_state()
 	update_animation(direction)
 	move_and_slide()
