@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var base_speed = 500
 @export var max_speed = 1000
 @export var jump_velocity = -1
-@export var base_acceleration : float = 3
-@export var deceleration : float = 20
+@export var base_acceleration : float = 10
+@export var deceleration : float = 5
 @export var jumps = 1
 
 enum state {IDLE, RUNNING, JUMPUP, JUMPDOWN, HURT}
@@ -68,16 +68,17 @@ func _physics_process(delta):
 		coyote_timer = 0
 		
 	if Input.is_action_just_pressed("poopemoj"):
-		pass
+		var penis
+		penis.crash()
 
 	var direction = Input.get_action_strength("right") - Input.get_action_strength("left")
 
 	if direction != 0:
 		# Check if the player has changed direction
-		if sign(direction) != sign(velocity.x) and velocity.x != 0:
+		#if sign(direction) != sign(velocity.x) and velocity.x != 0:
 			# Reduce the current velocity more smoothly to prevent crash or abrupt changes
-			velocity.x = velocity.x * 0.5  # Half the current speed to smooth out the change
-			acceleration = base_acceleration  # Reset acceleration for a smoother transition
+			#velocity.x = velocity.x * 0.5  # Half the current speed to smooth out the change
+			#acceleration = base_acceleration  # Reset acceleration for a smoother transition
 
 		# Continue normal acceleration
 		acceleration += delta * 2
@@ -91,8 +92,8 @@ func _physics_process(delta):
 	animation_player.speed_scale = abs(velocity.x) / 300
 	animation_player.speed_scale = clampf(animation_player.speed_scale, 0.5, 7)
 	
-	if randi_range(1,1000) == 69:
-		get_tree().crash
+	
+	
 		
 	update_state()
 	update_animation(direction)
