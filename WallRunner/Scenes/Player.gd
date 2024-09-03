@@ -4,14 +4,14 @@ extends CharacterBody2D
 @export var max_speed = 1000
 @export var jump_velocity = -1
 @export var base_acceleration : float = 10
-@export var deceleration : float = 5
+@export var deceleration : float = 7
 @export var jumps = 1
 
 enum state {IDLE, RUNNING, JUMPUP, JUMPDOWN, HURT}
 
 var anim_state = state.IDLE
 var speed = base_speed
-var acceleration = base_acceleration
+var acceleration = base_acceleration  
 
 @onready var camera = $Camera2D
 @onready var animator = $AnimatedSprite2D
@@ -68,8 +68,7 @@ func _physics_process(delta):
 		coyote_timer = 0
 		
 	if Input.is_action_just_pressed("poopemoj"):
-		var penis
-		penis.crash()
+		get_tree().crash
 
 	var direction = Input.get_action_strength("right") - Input.get_action_strength("left")
 
