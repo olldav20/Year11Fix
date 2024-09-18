@@ -21,7 +21,7 @@ shader_parameter/shake_block_size = 1.99
 shader_parameter/shake_color_rate = 0.044
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seem1"]
-size = Vector2(1104, 1664)
+size = Vector2(1104, 1328)
 
 [node name="GlitchTest" type="Node2D" groups=["Death"]]
 script = ExtResource("1_cfwe8")

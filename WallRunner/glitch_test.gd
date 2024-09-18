@@ -11,10 +11,11 @@ func _process(delta):
 
 func pressed():
 	canmove = true
-
+	print("ff")
 func _on_timer_timeout():
 	if canmove:
 		translate(Vector2(16,0))
+		print("erer")
 
 
 func _on_death_body_entered(body):
