@@ -429,34 +429,34 @@ texture = ExtResource("5_vyfk0")
 stretch_mode = 1
 
 [node name="button" parent="." instance=ExtResource("10_eubt3")]
-position = Vector2(488, 216)
+position = Vector2(486, 209)
 
-[node name="GlitchTest" parent="." instance=ExtResource("8_j0b3t")]
+[node name="GlitchTest" parent="button" instance=ExtResource("8_j0b3t")]
 z_index = 5
-position = Vector2(-768, -8)
+position = Vector2(-1254, -217)
 script = null
 
-[node name="77c2Aed7944c-glitch-image" parent="GlitchTest" index="0"]
+[node name="77c2Aed7944c-glitch-image" parent="button/GlitchTest" index="0"]
 position = Vector2(-1008, 208)
 scale = Vector2(0.784495, 1.80307)
 
-[node name="ColorRect" parent="GlitchTest" index="1"]
+[node name="ColorRect" parent="button/GlitchTest" index="1"]
 offset_left = -1056.0
 offset_top = -472.0
 offset_right = -352.0
 offset_bottom = 880.0
 
-[node name="ColorRect2" parent="GlitchTest" index="2"]
+[node name="ColorRect2" parent="button/GlitchTest" index="2"]
 offset_left = -360.0
 offset_top = -120.0
 offset_right = -312.0
 offset_bottom = 624.0
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" parent="GlitchTest/death" index="0"]
+[node name="CollisionShape2D" parent="button/GlitchTest/death" index="0"]
 position = Vector2(-1008, 200)
 
-[node name="Timer" type="Timer" parent="GlitchTest"]
+[node name="Timer" type="Timer" parent="button/GlitchTest"]
 wait_time = 0.06
 autostart = true
 
@@ -528,6 +528,6 @@ scale = Vector2(0.222656, 0.222656)
 texture = ExtResource("14_khtar")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
-[connection signal="timeout" from="GlitchTest/Timer" to="GlitchTest" method="_on_timer_timeout"]
+[connection signal="timeout" from="button/GlitchTest/Timer" to="button/GlitchTest" method="_on_timer_timeout"]
 
-[editable path="GlitchTest"]
+[editable path="button/GlitchTest"]

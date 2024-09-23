@@ -1,21 +1,21 @@
 extends Node2D
 var canmove = false
-@onready var button = get_tree().get_first_node_in_group("button")
 @onready var death = $death
+@onready var button = get_parent()
 
 func _ready():
-	button.collected.connect(pressed)
-
+	
+	
 func _process(delta):
 	pass
 
 func pressed():
 	canmove = true
-	print("ff")
+
+
 func _on_timer_timeout():
 	if canmove:
 		translate(Vector2(16,0))
-		print("erer")
 
 
 func _on_death_body_entered(body):
