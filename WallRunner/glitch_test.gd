@@ -4,7 +4,7 @@ var canmove = false
 @onready var button = get_parent()
 
 func _ready():
-	
+	button.collected.connect(pressed)
 	
 func _process(delta):
 	pass
