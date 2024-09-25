@@ -71,6 +71,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer > 0):
 		velocity.y = clampf(jump_velocity * abs(velocity.x), -600, -250)
+		$AudioStreamPlayer.play()
 		coyote_timer = 0
 		
 	if Input.is_action_just_pressed("poopemoj"):
@@ -114,3 +115,6 @@ func attack():
 func _on_timer_timeout() -> void:
 	time += 1
 	print(time)
+
+func step():
+	$step.play()
